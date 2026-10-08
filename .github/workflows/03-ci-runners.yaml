@@ -9,4 +9,4 @@ jobs:
             echo "Workflow is executing on a Github-hosted runner."
             echo "Runner Name: $RUNNER_NAME"
             echo "Runner OS: $RUNNER_OS"
-            echo "Runner Architecture: $RUNNNER_ARCH"
+            echo "Runner Architecture: $RUNNER_ARCH"
