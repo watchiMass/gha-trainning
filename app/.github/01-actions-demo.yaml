@@ -1,0 +1,23 @@
+name: 01 - CWW Flask CI Workflow
+
+on:
+  push:
+
+jobs: 
+  flask-ci-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+      
+      - name: Build Docker Image 
+        run: Docker build -t cww-flask-app:v1.0.0 .
+      
+      - name: Run Container
+        run: docker run -d -p 5000:5000 --name cww-flask cww-flask-app:v1.0.0
+
+      - name: Smoke Test
+        run: |
+          sleep 5
+          curl --fail --silent --show-error http://localhost:5000/health
