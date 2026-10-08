@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v6
       
       - name: Build Docker Image 
-        run: Docker build -t cww-flask-app:v1.0.0 .
+        run: docker build -t cww-flask-app:v1.0.0 .
       
       - name: Run Container
         run: docker run -d -p 5000:5000 --name cww-flask cww-flask-app:v1.0.0
